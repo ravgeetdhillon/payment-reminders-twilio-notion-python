@@ -39,7 +39,7 @@ def get_client_details() -> list:
     if response.status_code == 200:
         json_response: dict = response.json()['results']
     else:
-        print("Something went wrong.")
+        print("Something went wrong")
         return
 
     clients: list = []
@@ -56,14 +56,14 @@ def get_client_details() -> list:
     return clients
 
 
-def is_past_due_date(due_date: str) -> bool:
+def is_due(due_date: str) -> bool:
     """
     This function checks if the a date is due or not.
     """
 
     today = datetime.today()
     delta = datetime.strptime(due_date, "%Y-%m-%d") - today
-    return delta.days < 0
+    return delta.days == 7 or delta.days == 3 or delta.days == 1 or delta.days < 0
 
 
 def send_reminder(client: dict):
@@ -89,7 +89,7 @@ def send_reminder(client: dict):
 def main():
     clients: list = get_client_details()
     for client in clients:
-        if is_past_due_date(client['due_date']):
+        if is_due(client['due_date']):
             send_reminder(client)
 
 
