@@ -14,8 +14,8 @@ from twilio.rest import Client
 
 load_dotenv()
 
-TWILIO_ACCOUNT_SID = os.getenv('ACCOUNT_SID')
-TWILIO_AUTH_TOKEN = os.getenv('AUTH_TOKEN')
+TWILIO_ACCOUNT_SID = os.getenv('TWILIO_ACCOUNT_SID')
+TWILIO_AUTH_TOKEN = os.getenv('TWILIO_AUTH_TOKEN')
 NOTION_API_BASE_URL = 'https://api.notion.com/v1'
 NOTION_API_TOKEN = os.getenv('NOTION_API_TOKEN')
 NOTION_DATABASE_ID = os.getenv('NOTION_DATABASE_ID')
